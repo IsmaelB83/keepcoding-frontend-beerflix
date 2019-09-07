@@ -1,0 +1,28 @@
+{
+  "name": "beerflix",
+  "version": "1.0.0",
+  "description": "Keepcoding fullstack web development final project",
+  "main": "index.js",
+  "scripts": {
+    "server": "./node_modules/.bin/http-server . -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsmaelB83/keepcoding-frontend-beerflix.git"
+  },
+  "keywords": [
+    "javascript",
+    "frontend",
+    "css",
+    "html"
+  ],
+  "author": "Ismael Bernal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IsmaelB83/keepcoding-frontend-beerflix/issues"
+  },
+  "homepage": "https://github.com/IsmaelB83/keepcoding-frontend-beerflix#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
