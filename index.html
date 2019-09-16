@@ -1,32 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
     <!-- Meta headers-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <!-- Title -->
     <title>Keepcoding Beerflix</title>
-    <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/css/styles.css">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700&display=swap' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Frijole|Special+Elite&display=swap" rel="stylesheet">
+    <!-- Bootstrap 4 -->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+    <!-- Fontawesome -->
+    <script src='https://kit.fontawesome.com/ad7ba9e22b.js'></script>
+    <!-- Own styles -->
+    <link rel='stylesheet' href='/src/css/styles.css'>
 </head>
 
 <body>
+    
     <!-- Header -->
-    <header>
-        <nav>
-            <img src="" alt="">
-            <span>Beerflix</span>
-        </nav>
+    <header id=header>
     </header>
-    <!-- Header -->
-    <main>
-        <h1>Beerflix - Bienvenido</h1>
+    
+    <!-- Main -->
+    <main id='app'>
     </main>
+    <!-- /Main -->
+    
+    <!-- loader -->
+    <div id='loader' class='loader d-none'>
+        <img src='/public/spinner.gif' alt=''>
+        <p id='loader-text'>redirecting home...</p>
+    </div>
+
+    <!-- Bootstrap -->
+    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'></script>
+    <script src='http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
+    
     <!-- JS main link -->
-    <script src="/src//js/index.js"></script>
+    <script src='https://cdn.rawgit.com/visionmedia/page.js/master/page.js'></script>
+    <script src='/src/js/routes.js' type='module'></script>
+    <script src='/src/js/state.js' type='module'></script>
+    
 </body>
 
 </html>

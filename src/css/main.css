@@ -1,0 +1,11 @@
+/**
+ * Color palette (generated with https://coolors.co/)
+ */
+ :root {
+    --main-color: rgb(255, 100, 0);
+    --main-color--light: rgb(255, 174, 0);
+    --secondary-color: rgba(255, 232, 0, 1);
+    --dark-grey: rgba(30, 30, 36, 1);
+    --medium-grey: rgba(48, 48, 54, 1);
+    --light-grey: rgba(193, 188, 172, 1);    
+}

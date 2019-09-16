@@ -1,0 +1,23 @@
+.loader {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center;
+    background-color: rgba(0, 0, 0, .85);
+    z-index: 9999;
+}
+
+.loader img {
+    height: 150px;
+    width: auto;
+}
+
+.loader p {
+    text-transform: lowercase;
+    font-weight: 700;
+    color: orange;
+}

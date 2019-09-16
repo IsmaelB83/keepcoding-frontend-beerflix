@@ -4,6 +4,7 @@
   "description": "Keepcoding fullstack web development final project",
   "main": "index.js",
   "scripts": {
+    "start": "node server",
     "server": "./node_modules/.bin/http-server . -c-1"
   },
   "repository": {
@@ -22,10 +23,14 @@
     "url": "https://github.com/IsmaelB83/keepcoding-frontend-beerflix/issues"
   },
   "homepage": "https://github.com/IsmaelB83/keepcoding-frontend-beerflix#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.2.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
