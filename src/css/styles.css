@@ -1,8 +1,8 @@
-@import 'reset.css';
 @import 'main.css';
-@import 'text.css';
 @import 'navbar.css';
-@import 'product.css';
 @import 'landing.css';
 @import 'login.css';
 @import 'loader.css';
+@import 'section.css';
+@import 'footer.css';
+

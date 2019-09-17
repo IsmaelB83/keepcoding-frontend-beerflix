@@ -71,7 +71,7 @@ const render = (parent) => {
             ev.preventDefault();
             // Login to API 
             if (await state.login(email.value)) {
-                page('/home');
+                page('/');
             } else {
                 // Error display alert
                 alert.innerHTML = 'e-mail address not authorized'

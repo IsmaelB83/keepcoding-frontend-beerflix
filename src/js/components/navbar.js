@@ -10,7 +10,7 @@ import { toggleLoader } from '../ui.js'
 const htmlTemplate = ({
     numItems,
 }) => {
-    return `<nav class='navbar navbar-expand-lg navbar-transparent fixed-top'>
+    return `<nav class='navbar navbar-dark bg-dark navbar-expand-lg fixed-top'>
                 <a class='navbar-brand' href='#'>
                     <img src="/public/logo_2.png" alt="logo">
                     <span>Beerflix</span>
@@ -34,12 +34,12 @@ const htmlTemplate = ({
                             <a class='nav-link' href='#contact'>Contact</a>
                         </li>
                     </ul>
-                    <ul class='navbar-nav'>
+                    <ul class='navbar-nav navbar-nav--right'>
                         <li class='nav-item'>
                             <a class='nav-link nav-link--button js--cart' href='#'><i class="fas fa-shopping-cart"></i><small> ${numItems} items</small></a>
                         </li>
                         <li class='nav-item'>
-                            <a class='nav-link nav-link--button js--logout' href='#'><i class="fas fa-sign-out-alt"></i></a>
+                            <a class='nav-link nav-link--button js--logout' href='#'><i class="fas fa-sign-out-alt"></i><small> logout</small></a>
                         </li>
                     </ul>
                 </div>
@@ -65,7 +65,7 @@ const render = (parent) => {
             toggleLoader('d-none');
             ev.preventDefault();
             state.logout();
-            page('/');
+            page('/login');
         } catch (error) {
             alert(error.message);
         } finally {

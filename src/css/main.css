@@ -1,4 +1,32 @@
 /**
+ * Simple reset
+ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img, embed, object, video {
+    max-width: 100%;
+    width: 100%;
+}
+
+/**
  * Color palette (generated with https://coolors.co/)
  */
  :root {
@@ -8,4 +36,18 @@
     --dark-grey: rgba(30, 30, 36, 1);
     --medium-grey: rgba(48, 48, 54, 1);
     --light-grey: rgba(193, 188, 172, 1);    
+    --main-white: #fafafa;
+    --main-black: #020202;
+}
+
+/* Links */
+.link {
+    text-decoration: none;
+    color: var(--main-color--light);
+    text-transform: uppercase;
+}
+
+.link:hover {
+    color: var(--main-color);
+    text-decoration: underline;
 }

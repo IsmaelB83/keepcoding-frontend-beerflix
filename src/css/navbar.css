@@ -1,22 +1,29 @@
-.navbar .navbar-transparent {
-    background-color: transparent;
+.navbar {
+    padding: 8px 20px;
+}
+
+.navbar.bg-dark {
+    background-color: rgba(0, 0, 0, .95) !important;
+    border-bottom: 1px solid var(--main-color--light);
 }
 
 .navbar-brand {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    padding: 0;
 }
 
 .navbar-brand img {
-    width: 50px;
-    height: 50px;
+    width: 2.25rem;
+    height: 2.25rem;
 }
 
 .navbar-brand span {
     font-family: 'Fjalla One', sans-serif;
-    font-size: 2rem;
-    margin-left: 5px;
+    font-size: 1.9rem;
+    line-height: 2.25rem;
+    margin-left: 1rem;
     color: red;
 }
 
@@ -27,6 +34,12 @@
 
 .nav-link:hover {
     color: white;
+}
+
+.navbar-nav--right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .nav-link--button {

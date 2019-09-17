@@ -1,0 +1,72 @@
+.section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    color: black;
+}
+
+.section-mainTitle {
+    font-size: 2.5rem;
+    line-height: 2rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.section-subTitle {
+    text-transform: uppercase;
+    font-size: .9rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    letter-spacing: .7px;
+    color: #B28564;
+}
+
+.section-summary {
+    font-size: .9rem;
+    line-height: 1.8;
+    letter-spacing: .9px;
+    margin-bottom: 1.5rem;
+}
+
+.section-grid {
+    margin: 1.5rem 0;
+    border: 1px solid red;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-flow: row;
+    grid-gap: 30px;
+
+}
+
+.section-paginator {
+    margin: 1rem 0;
+    width: 100%;
+    display: inline-block;
+    font-size: .8rem;
+}
+
+.section-paginator .pagination {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.section-paginator .page-link {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: none;
+}
+
+.section-paginator .page-link.active {
+    background-color: var(--main-color--light);
+    color: white;
+}
+
+.section-paginator .page-link:hover:not(.active) {
+    background-color: #ddd;
+}
