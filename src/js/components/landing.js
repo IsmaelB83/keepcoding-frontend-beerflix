@@ -4,8 +4,8 @@
 const htmlTemplate = () => {
     return `<div id='landing' class='landing'>
                 <picture class='hero-background'>
-                    <source srcset='/public/heropanel@tablet.jpg 320w, /public/heropanel@desktop.jpg 768w, ' media='(min-width: 768px)' >
-                    <source srcset='/public/heropanel@tablet.jpg' media='(min-width: 320px)'>
+                    <source srcset='/public/heropanel@tablet.jpg 320w, /public/heropanel@desktop.jpg 768w, ' media='(min-width: 768px)' />
+                    <source srcset='/public/heropanel@tablet.jpg' media='(min-width: 320px)' />
                     <img src='/public/heropanel-500.jpg' alt='beerflix' />
                 </picture>
                 <div class='landing-hero'>

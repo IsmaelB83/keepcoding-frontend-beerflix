@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!-- Meta headers-->
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <!-- Title -->
+    <title>Keepcoding Beerflix</title>
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700&display=swap' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab|Fjalla+One|Frijole|Special+Elite&display=swap' rel='stylesheet'>
+    <!-- Bootstrap 4 -->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+    <!-- Fontawesome -->
+    <script src='https://kit.fontawesome.com/ad7ba9e22b.js'></script>
+    <!-- Own styles -->
+    <link rel='stylesheet' href='/src/css/styles.css'>
+</head>
+
+<body>
+    
+    <!-- Header -->
+    <header id=header>
+        <nav class='navbar navbar-dark bg-dark navbar-expand-lg fixed-top'>
+            <a class='navbar-brand' href='#'>
+                <img src='/public/logo_2.png' alt='logo'>
+                <span>Beerflix</span>
+            </a>
+            <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+                <span class='navbar-toggler-icon'></span>
+            </button>
+            
+            <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                <ul class='navbar-nav mr-auto'>
+                    <li class='nav-item active'>
+                        <a class='nav-link' href='#landing'>Home <span class='sr-only'>(current)</span></a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#products'>Product</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#about'>About us</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#contact'>Contact</a>
+                    </li>
+                </ul>
+                <ul class='navbar-nav navbar-nav--right'>
+                    <li class='nav-item'>
+                        <a class='nav-link nav-link--button js--cart' href='#'><i class='fas fa-shopping-cart'></i><small> ${numItems} items</small></a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link nav-link--button js--logout' href='#'><i class='fas fa-sign-out-alt'></i><small> logout</small></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main -->
+    <main id='app'>
+        <section id='products' class='container section'>
+            <div class='row'>
+                <div class='col-12'>
+                    <h3 class='section-subTitle'>Home delivery</h3>
+                    <h2 class='section-mainTitle'>Enjoy your beer</h2>
+                    <p class='section-summary'>
+                        We have a huge catalog of craft beers. Have a sit, make your order and enjoy your drink as soon as we deliver it to you in the comfort of your home
+                    </p>
+                    <article class='beer-detail'>
+                        <div class='beer-detail-img'>
+                            <picture>
+                                <img src="
+                                " alt="">
+                            </picture>
+                        </div>
+                        <div class='beer-detail-right'>
+                        </div>
+                        <div class="beer-detail-desc">
+                        </div>
+                        <div class="beer-detail-ingredients">
+                        </div>
+                        <div class="beer-detail-comments">
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <aside class='cart-summary'>
+            <p>No items in the cart</p>
+            <ul class='summary-list'>
+                <li class='summary-list-item'>
+                    <div class='beer-xs'>
+                        <img src="" alt="">
+                        <h6>Beer title</h6>
+                        <span>Quantity</span>
+                        <span>Price</span>
+                    </div>
+                </li>
+                <li class='summary-list-item'>
+                    <div class='beer-xs'>
+                        <img src="" alt="">
+                        <h6>Beer title</h6>
+                        <span>Quantity</span>
+                        <span>Price</span>
+                    </div>
+                </li>   
+                <li class='summary-list-item'>
+                    <div class='beer-xs'>
+                        <img src="" alt="">
+                        <h6>Beer title</h6>
+                        <span>Quantity</span>
+                        <span>Price</span>
+                    </div>                   
+                </li>
+            </ul>
+        </aside>
+    </main>
+    <!-- /Main -->
+    
+    <!-- loader -->
+    <div id='loader' class='loader d-none'>
+        <img src='/public/spinner.gif' alt=''>
+        <p id='loader-text'>redirecting home...</p>
+    </div>
+    
+    <!-- Footer with social media icons -->
+    <footer>
+        <div class='footer-content'>
+            <p>Una creación de <a class='link' href='https://www.laestanciaazul.com/'> Ismael Bernal</a></p>
+            <p>Alumnno del bootcamp <a class='link' href='https://keepcoding.io/es/keepcoding-web-development-master-bootcamp/'> Fullstack Web Development VII Edición</a> de KeepCoding</p>
+        </div>
+        <div class='social'>
+            <a class='social-icon social-icon--img' href='https://laestanciaazul.com'>
+                <img src='/public/estanciaazul.ico' alt=''>
+            </a>   
+            <a class='social-icon' href='https://github.com/IsmaelB83'>
+                <i class='fab fa-github social-icon--github'></i>
+            </a>
+            <a class='social-icon' href='https://www.linkedin.com/in/ismael-bernal-10497a51/'>
+                <i class='fab fa-twitter social-icon--twitter'></i>
+            </a>
+            <a class='social-icon' href='https://twitter.com/Ismab83'>
+                <i class='fab fa-linkedin social-icon--linkedin'></i>
+            </a>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap -->
+    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'></script>
+    <script src='http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
+    
+    <!-- JS main link -->
+    <script src='https://cdn.rawgit.com/visionmedia/page.js/master/page.js'></script>
+    <script src='/src/js/routes.js' type='module'></script>
+    <script src='/src/js/state.js' type='module'></script>
+    
+</body>
+
+</html>
