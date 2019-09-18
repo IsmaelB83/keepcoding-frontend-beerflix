@@ -1,0 +1,87 @@
+.beer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Roboto Slab';
+}
+
+.beer p, .beer h5 {
+    margin: 0;
+    padding: 0;
+}
+
+.beer-top {
+    text-align: center;
+}
+
+.beer-img {
+    max-height: 200px;
+    width: auto;
+}
+
+.beer-body {
+    margin-top: 20px;
+    border: 1px solid #B28564;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.beer-body .beer-title {
+    text-align: center;
+    grid-column: span 2;
+    border-bottom: 1px solid #B28564;
+    padding: 10px 0;
+}
+
+.beer-body .beer-title a {
+    color: #B28564;
+}
+
+.beer-body .beer-title a:hover {
+    text-decoration: none;
+}
+
+.beer-body .beer-middle {
+    display: grid;
+    grid-column: span 2;
+    grid-template-columns: repeat(2, 1fr);
+    border-bottom: 1px solid #B28564;
+}
+
+.beer-body .beer-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #B28564;
+}
+
+.beer-body .beer-btn {
+    justify-self: center;
+    align-self: center;
+    color: #B28564;
+    font-size: .8rem;
+    padding: 7.5px 0;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+.beer-body .beer-btn:hover {
+    background-color: #B28564;
+    color: white;
+}
+
+.beer-body .beer-text {
+    text-align: center;
+    grid-column: span 2;
+    font-size: .85rem;
+    padding: 10px 10px;
+}
+
+.beer-currency {
+    margin-right: 2px;
+    padding-top: 5px;
+    font-size: .7rem;
+}

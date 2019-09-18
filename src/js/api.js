@@ -69,7 +69,7 @@ const api = (url = API_URL) => {
                 const response = await fetch(requestUrl, {
                     headers: {
                         "Content-type": "application/json",
-                        "X-API-KEY": apiKey,
+                        "X-API-KEY": API_KEY,
                     },
                 });
                 // Exceptiopn
@@ -93,7 +93,7 @@ const api = (url = API_URL) => {
                 const response = await fetch(`${BEERS_URL}/${id}`,{
                     headers: {
                         "Content-type": "application/json",
-                        "X-API-KEY": apiKey,
+                        "X-API-KEY": API_KEY,
                     },
                 });
                 // Exception
@@ -118,7 +118,7 @@ const api = (url = API_URL) => {
                     method: "POST",
                     headers: {
                         "Content-type": "application/json",
-                        "X-API-KEY": apiKey,
+                        "X-API-KEY": API_KEY,
                     },
                 });
                 // Exception
@@ -147,7 +147,7 @@ const api = (url = API_URL) => {
                     }),
                     headers: {
                         "Content-type": "application/json",
-                        "X-API-KEY": apiKey,
+                        "X-API-KEY": API_KEY,
                     },
                 });
                 // Exception
