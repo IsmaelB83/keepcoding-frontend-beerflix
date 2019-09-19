@@ -21,132 +21,115 @@
 
 <body>
     
-    <!-- Header -->
-    <header id=header>
-        <nav class='navbar navbar-dark bg-dark navbar-expand-lg fixed-top'>
-            <a class='navbar-brand' href='#'>
-                <img src='/public/logo_2.png' alt='logo'>
-                <span>Beerflix</span>
-            </a>
-            <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-                <span class='navbar-toggler-icon'></span>
-            </button>
-            
-            <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-                <ul class='navbar-nav mr-auto'>
-                    <li class='nav-item active'>
-                        <a class='nav-link' href='#landing'>Home <span class='sr-only'>(current)</span></a>
-                    </li>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='#products'>Product</a>
-                    </li>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='#about'>About us</a>
-                    </li>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='#contact'>Contact</a>
-                    </li>
-                </ul>
-                <ul class='navbar-nav navbar-nav--right'>
-                    <li class='nav-item'>
-                        <a class='nav-link nav-link--button js--cart' href='#'><i class='fas fa-shopping-cart'></i><small> ${numItems} items</small></a>
-                    </li>
-                    <li class='nav-item'>
-                        <a class='nav-link nav-link--button js--logout' href='#'><i class='fas fa-sign-out-alt'></i><small> logout</small></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    
     <!-- Main -->
     <main id='app'>
-        <section id='products' class='container section'>
+        
+        <section id='product' class='container section'>
             <div class='row'>
                 <div class='col-12'>
-                    <h3 class='section-subTitle'>Home delivery</h3>
-                    <h2 class='section-mainTitle'>Enjoy your beer</h2>
-                    <p class='section-summary'>
-                        We have a huge catalog of craft beers. Have a sit, make your order and enjoy your drink as soon as we deliver it to you in the comfort of your home
-                    </p>
-                    <article class='beer-detail'>
-                        <div class='beer-detail-img'>
-                            <picture>
-                                <img src="
-                                " alt="">
-                            </picture>
+                    <article class='detail'>
+                        <div class='detail-header'>
+                            <div class='detail-img'>
+                                <img src='https://images.punkapi.com/v2/keg.png' alt=''>
+                            </div>
+                            <div class='detail-info'>
+                                <h3 class='detail-subTitle'>First brewed 09/2007</h3>
+                                <h2 class='detail-mainTitle'>Buzz</h2>
+                                <p class='detail-price'><span class='currency'>$</span>15.00</p>
+                                <p class='detail-description'>Operational change management inside of workflows to establish a framework. Taking seamless key
+                                    performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the
+                                    start-up mentality to derive convergence on cross-platform integration.
+                                </p>
+                                <div class='detail-order'>
+                                    <input class='detail-quantity' type='number' maxlength="2" value="1">
+                                    <button class='detail-button'>Add to cart</button>
+                                </div>
+                            </div>           
                         </div>
-                        <div class='beer-detail-right'>
-                        </div>
-                        <div class="beer-detail-desc">
-                        </div>
-                        <div class="beer-detail-ingredients">
-                        </div>
-                        <div class="beer-detail-comments">
+                        <div class='detail-footer'>
+                            <div class='detail-section'>
+                                <h4 class='detail-section--title'>Brewers Tip</h4>
+                                <p class='detail-section--content'>
+                                    Operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline
+                                    to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive
+                                    convergence on cross-platform integration.
+                                </p>        
+                            </div>
+                            <div class='detail-section'>
+                                <h4 class='detail-section--title'>Ingredients</h4>
+                                <div class='detail-boxes'>
+                                    <div class="detail-box">
+                                        <h6>malt</h6>
+                                        <ul>
+                                            <li>Maris Otter Extra Pale</li>
+                                            <li>Caramalt</li>
+                                            <li>Munich</li>
+                                        </ul>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h6>hops</h6>
+                                        <ul>
+                                            <li>Fuggles</li>
+                                            <li>First Gold</li>
+                                            <li>Fuggles</li>
+                                            <li>First Gold</li>
+                                        </ul>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h6>hops</h6>
+                                        <ul>
+                                            <li>Fuggles <span>[ 3.3 Kilograms ]</span></li>
+                                            <li>First Gold</li>
+                                            <li>Fuggles</li>
+                                            <li>First Gold</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='detail-section comments-section'>
+                                <form class="createComment">
+                                    <label for="comment">Your Comment</label>
+                                    <textarea id="comment" type="text" placeholder="Comment" required=""></textarea>
+                                    <button type="submit">Post Comment</button>
+                                </form>
+                                <div class='commentBox'>
+                                    <div class="comment">
+                                        <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/b/bc/Garfield_the_Cat.svg/1200px-Garfield_the_Cat.svg.png" class="commentPic" alt="user Pic">
+                                        <div class="commentBody">
+                                            <div class="commentHeader">
+                                                <h3 class="commentAuthor">Bonorum Malorum</h3><span class="publishDate">2 days ago</span>
+                                            </div>
+                                            <span class="commentContent">Many desktop publishing packages and web page editors now use</span>
+                                        </div>
+                                    </div>
+                                    <div class="comment">
+                                        <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/b/bc/Garfield_the_Cat.svg/1200px-Garfield_the_Cat.svg.png" class="commentPic" alt="user Pic">
+                                        <div class="commentBody">
+                                            <div class="commentHeader">
+                                                <h3 class="commentAuthor">Bonorum Malorum</h3><span class="publishDate">2 days ago</span>
+                                            </div>
+                                            <span class="commentContent">Many desktop publishing packages and web page editors now use</span>
+                                        </div>
+                                    </div>
+                                    <div class="comment">
+                                        <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/b/bc/Garfield_the_Cat.svg/1200px-Garfield_the_Cat.svg.png" class="commentPic" alt="user Pic">
+                                        <div class="commentBody">
+                                            <div class="commentHeader">
+                                                <h3 class="commentAuthor">Bonorum Malorum</h3><span class="publishDate">2 days ago</span>
+                                            </div>
+                                            <span class="commentContent">Many desktop publishing packages and web page editors now use</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
-        <aside class='cart-summary'>
-            <p>No items in the cart</p>
-            <ul class='summary-list'>
-                <li class='summary-list-item'>
-                    <div class='beer-xs'>
-                        <img src="" alt="">
-                        <h6>Beer title</h6>
-                        <span>Quantity</span>
-                        <span>Price</span>
-                    </div>
-                </li>
-                <li class='summary-list-item'>
-                    <div class='beer-xs'>
-                        <img src="" alt="">
-                        <h6>Beer title</h6>
-                        <span>Quantity</span>
-                        <span>Price</span>
-                    </div>
-                </li>   
-                <li class='summary-list-item'>
-                    <div class='beer-xs'>
-                        <img src="" alt="">
-                        <h6>Beer title</h6>
-                        <span>Quantity</span>
-                        <span>Price</span>
-                    </div>                   
-                </li>
-            </ul>
-        </aside>
+        
     </main>
     <!-- /Main -->
-    
-    <!-- loader -->
-    <div id='loader' class='loader d-none'>
-        <img src='/public/spinner.gif' alt=''>
-        <p id='loader-text'>redirecting home...</p>
-    </div>
-    
-    <!-- Footer with social media icons -->
-    <footer>
-        <div class='footer-content'>
-            <p>Una creación de <a class='link' href='https://www.laestanciaazul.com/'> Ismael Bernal</a></p>
-            <p>Alumnno del bootcamp <a class='link' href='https://keepcoding.io/es/keepcoding-web-development-master-bootcamp/'> Fullstack Web Development VII Edición</a> de KeepCoding</p>
-        </div>
-        <div class='social'>
-            <a class='social-icon social-icon--img' href='https://laestanciaazul.com'>
-                <img src='/public/estanciaazul.ico' alt=''>
-            </a>   
-            <a class='social-icon' href='https://github.com/IsmaelB83'>
-                <i class='fab fa-github social-icon--github'></i>
-            </a>
-            <a class='social-icon' href='https://www.linkedin.com/in/ismael-bernal-10497a51/'>
-                <i class='fab fa-twitter social-icon--twitter'></i>
-            </a>
-            <a class='social-icon' href='https://twitter.com/Ismab83'>
-                <i class='fab fa-linkedin social-icon--linkedin'></i>
-            </a>
-        </div>
-    </footer>
     
     <!-- Bootstrap -->
     <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous'></script>
