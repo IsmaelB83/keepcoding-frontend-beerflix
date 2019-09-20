@@ -25,9 +25,7 @@ const addClass = (element) => (cssClass) => {
     element.classList += ` ${cssClass}`;
 }
 
-/**
- * Loader toggler
- */
+// Toogle loader
 const loader = document.querySelector('#loader');
 const toggleLoader = toggleClass(loader);
 

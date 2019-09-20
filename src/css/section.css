@@ -27,35 +27,3 @@
     letter-spacing: .9px;
     margin-bottom: 1.5rem;
 }
-
-.section-paginator {
-    margin: 1rem 0;
-    width: 100%;
-    display: inline-block;
-    font-size: .8rem;
-}
-
-.section-paginator .pagination {
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.section-paginator .page-link {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
-    border: none;
-}
-
-.section-paginator .page-link.active {
-    background-color: var(--main-color--light);
-    color: white;
-}
-
-.section-paginator .page-link:hover:not(.active) {
-    background-color: #ddd;
-}

@@ -1,15 +1,24 @@
 /**
+ * Imports
+ */
+import state from '../state.js';
+import renderBeerList from './beerList.js';
+
+/**
  * Template que genera el contenido del componente
  */
 const htmlTemplate = () => {
     return `<section id='products' class='container section'>
                 <div class='row'>
                     <div class='col-12'>
+                        <!-- Header section-->
                         <h3 class='section-subTitle'>Home delivery</h3>
                         <h2 class='section-mainTitle'>Enjoy your beer</h2>
                         <p class='section-summary'>
                             We have a huge catalog of craft beers. Have a sit, make your order and enjoy your drink as soon as we deliver it to you in the comfort of your home
                         </p>
+
+                        <!-- Form search -->
                         <form id='searchForm' method='post' class='form-inline'>
                             <div class='form-group mr-1 mb-2'>
                                 <input type='text' id='inputSearch' class='form-control form-control-sm' placeholder='name'>
@@ -20,37 +29,18 @@ const htmlTemplate = () => {
                             <button type='submit' class='btn btn-sm btn-primary mb-2'><i class='fas fa-search'></i></button>
                         </form>
                         
-                        <div class='section-grid'>
-                            <div class="card">HOLA</div>
-                            <div class="card">HOLA</div>
-                            <div class="card">HOLA</div>
-                            <div class="card">HOLA</div>
-                            <div class="card">HOLA</div>
-                            <div class="card">HOLA</div>
-                            <div class="card">HOLA</div>
-                            <div class="card">HOLA</div>
-                            <div class="card">HOLA</div>
-                            <div class="card">HOLA</div>
+                        <!-- Grid -->
+                        <div id='beers-list'>
                         </div>
 
-                        <div class='section-paginator'>
-                            <ul class='pagination'>
-                                <li class='page-item'>
-                                    <a class='page-link' href='#' aria-label='Previous'>
-                                        <span aria-hidden='true'>&laquo;</span>
-                                        <span class='sr-only'>Previous</span>
-                                    </a>
-                                </li>
-                                <li class='page-item'><a class='page-link active' href='#'>1</a></li>
-                                <li class='page-item'><a class='page-link' href='#'>2</a></li>
-                                <li class='page-item'><a class='page-link' href='#'>3</a></li>
-                                <li class='page-item'>
-                                    <a class='page-link' href='#' aria-label='Next'>
-                                        <span aria-hidden='true'>&raquo;</span>
-                                        <span class='sr-only'>Next</span>
-                                    </a>
-                                </li>
-                            </ul>
+                        <!-- Loader -->
+                        <div class='loader-api ${state.loading?'':'d-none'}'>
+                            <img src='/public/loading.gif' alt=''>
+                            <p id='loader-text'>fetching data from API...</p>
+                        </div>
+
+                        <!-- Paginator -->
+                        <div id='paginator' class='paginator'>
                         </div>
                     </div>
                 </div>

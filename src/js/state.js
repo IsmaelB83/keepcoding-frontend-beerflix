@@ -6,7 +6,7 @@ import Api from './api.js';
 /**
  * Definitions
  */
-const { login } = Api();
+const { login, getBeers } = Api();
 
 /**
  * Class to handle the global state of the SPA (trying to get similar functionality than redux)
@@ -17,10 +17,13 @@ class State {
      * Constructor
      */
     constructor() {
-        // User not logged in
         this.email = null;
         this.apiKey = null;
         this.cart = null;
+        this.beers = null;
+        this.currentPage = 0;
+        this.beersPerPage = 20;
+        this.loading = true;
     }
 
     /**
@@ -91,6 +94,18 @@ class State {
         if (index >= 0) {
             this.cart.splice(findIndex,1);
         }
+    }
+
+    /**
+     * Load beers from backend
+     */
+    loadBeers = async (filter) => {
+        // Fetch & update state
+        const results = await getBeers(filter);
+        this.beers = results.beers;
+        this.loading = false;
+        this.currentPage = 0;
+        return results;
     }
 }
 

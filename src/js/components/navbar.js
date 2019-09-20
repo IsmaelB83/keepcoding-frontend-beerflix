@@ -12,7 +12,7 @@ const htmlTemplate = ({
 }) => {
     return `<nav class='navbar navbar-dark bg-dark navbar-expand-lg fixed-top'>
                 <a class='navbar-brand' href='#'>
-                    <img src="/public/logo_2.png" alt="logo">
+                    <img src="/public/logo.png" alt="logo">
                     <span>Beerflix</span>
                 </a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>

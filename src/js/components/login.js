@@ -11,7 +11,7 @@ const htmlTemplate = () => {
     return `<div id='login' class='login' autocomplete='on'>
                 <div class='login-wrapper'>
                     <div class='login-logo'>
-                        <img src='./public/logo_2.png' alt=''>
+                        <img src='./public/logo.png' alt=''>
                         <span>Beerflix</span>
                     </div>
                     <form class='login-form' method='post'>
