@@ -73,9 +73,3 @@ img, embed, object, video {
     background-color: #B28564;
     color: white;
 }
-
-.input--brown {
-    border-radius: 0;
-    border-color: #B28564;
-    height: 100%;
-}

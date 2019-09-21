@@ -1,26 +1,39 @@
 module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-  },
-  extends: [
-    "airbnb-base",
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
   ],
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
+  "parserOptions": {
+    "sourceType": "module",
   },
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: "module",
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true,
   },
-  rules: {
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"],
-    "camelcase": ["error", {"properties": "always"}],
-    "indent": ["error", 4],
-    "no-trailing-spaces": ["error"],
-    "js": "always",
-    "json": "never"
+  "rules": {
+    "max-len": [
+      "warn",
+      {
+        "code": 120,
+        "tabWidth": 4,
+        "comments": 120,
+        "ignoreComments": false,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ]
   },
-};
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  }  
+}

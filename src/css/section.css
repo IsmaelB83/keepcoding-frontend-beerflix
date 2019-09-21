@@ -27,3 +27,14 @@
     letter-spacing: .9px;
     margin-bottom: 1.5rem;
 }
+
+.section-summary--small {
+    font-size: .75rem;
+    line-height: 1rem;
+    margin-bottom: .5rem;
+    font-weight: 700;
+}
+
+.section-detail {
+    margin-top: 6rem;
+}

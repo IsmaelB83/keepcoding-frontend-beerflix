@@ -1,5 +1,5 @@
 Pending list:
 - Login  --> *
-- Index  --> Filter by name and date, refactored css and js
+- Index  --> Filter by name and date
 - Detail --> Call API and render Detail, Add comment and Like
 - Cart   --> Add product to cart, remove from cart, payment

@@ -2,10 +2,10 @@
  * Template to return HTML
  */
 const htmlTemplate = () => {
-    return `<div id='login' class='login' autocomplete='on'>
+  return `<div id='login' class='login' autocomplete='on'>
                 <div class='login-wrapper'>
                     <div class='login-logo'>
-                        <img src='./public/logo.png' alt=''>
+                        <img src='./public/img/logo.png' alt=''>
                         <span>Beerflix</span>
                     </div>
                     <form class='login-form' method='post'>
@@ -23,14 +23,14 @@ const htmlTemplate = () => {
                     </form>
                 </div>
             </div>`;
-}
+};
 
 /**
  * Method to render login component inside the parent specified as a parameter
  * @param {HTMLElement} parent Parent of the login component
  */
-const render = (parent) => {
-    parent.innerHTML += htmlTemplate();
-}
+const render = parent => {
+  parent.innerHTML += htmlTemplate();
+};
 
 export default render;

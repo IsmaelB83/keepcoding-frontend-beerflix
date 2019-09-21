@@ -1,5 +1,6 @@
 .navbar {
     padding: 8px 20px;
+    max-height: 61px;
 }
 
 .navbar.bg-dark {
