@@ -1,3 +1,6 @@
+/**
+ * Default API URL
+ */
 const API_URL = "https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1/";
 
 /**
@@ -21,6 +24,10 @@ const secureFetch = async(url, method, body, apiKey) => {
     return await fetch(url, options);
 }
 
+/**
+ * API Object to consume resources in the backend
+ * @param {URL} url Backend API url
+ */
 const api = (url = API_URL) => {
 
     /**

@@ -14,3 +14,10 @@ Práctica del módulo de frontend avanzado de Keepcoding
 5. Añadir ESLINT al proyecto. (Opcional)
 
 6. Estaría bien añadir workbox para tener soporte offline. (Opcional)
+
+## Notas del desarrollador
+1. Aplicado patrón component/container para separar la lógica y estado de los componentes, de su representación gráfica
+
+2. Uso de local storage para almacenar la API KEY y que el usuario no tenga que logar cada vez en la aplicación (para dar más seguridad sería conveniente moverlo a una cookie)
+
+3. Creado una especie de state (tipo redux), para almacenar y compartir el estado de la aplicación de forma global (state.js)

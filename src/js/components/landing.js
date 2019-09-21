@@ -9,11 +9,12 @@ const htmlTemplate = () => {
                     <img src='/public/heropanel-500.jpg' alt='beerflix' />
                 </picture>
                 <div class='landing-hero'>
-                    <h1 class='title'>Brought to you by <span>Beerflix</span></h1>
-                    <div class='landing-buttons'>
-                        <a class='btn btn-lg btn-main btn-main--fill' href='#products'>Products</a>
-                        <a class='btn btn-lg btn-main' href='#about'>About us</a>
+                    <div class='landing-titles'>
+                        <img src='/public/logo_beerflix.png' alt='beerflix' />
+                        <h1>Handcrafted Beer</h1>
+                        <h2>"Pide tus cervezas desde la comodidad del sofa"</h2>
                     </div>
+                    <a class='btn btn-lg' href='#products'>Nuestros productos</a>
                 </div>
             </div>`;
 }

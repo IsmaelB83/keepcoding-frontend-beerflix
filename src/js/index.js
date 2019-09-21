@@ -1,6 +1,6 @@
 // Imports
 import { toggleLoader } from './ui.js';
-import state from './state.js';
+import state from './state/index.js';
 
 // Intento login via local storage
 login();

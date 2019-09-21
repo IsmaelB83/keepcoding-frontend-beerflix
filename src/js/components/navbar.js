@@ -1,19 +1,10 @@
 /**
- * Imports
- */
-import state from '../state.js';
-import { toggleLoader } from '../ui.js'
-
-/**
  * Template que genera el contenido del componente
  */
-const htmlTemplate = ({
-    numItems,
-}) => {
+const htmlTemplate = () => {
     return `<nav class='navbar navbar-dark bg-dark navbar-expand-lg fixed-top'>
                 <a class='navbar-brand' href='#'>
-                    <img src="/public/logo.png" alt="logo">
-                    <span>Beerflix</span>
+                    <img src="/public/logo_beerflix.png" alt="logo">
                 </a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
                     <span class='navbar-toggler-icon'></span>
@@ -36,7 +27,7 @@ const htmlTemplate = ({
                     </ul>
                     <ul class='navbar-nav navbar-nav--right'>
                         <li class='nav-item'>
-                            <a class='nav-link nav-link--button js--cart' href='#'><i class="fas fa-shopping-cart"></i><small> ${numItems} items</small></a>
+                            <a class='nav-link nav-link--button js--cart' href='#'><i class="fas fa-shopping-cart"></i><small> 0 items</small></a>
                         </li>
                         <li class='nav-item'>
                             <a class='nav-link nav-link--button js--logout' href='#'><i class="fas fa-sign-out-alt"></i><small> logout</small></a>
@@ -50,28 +41,14 @@ const htmlTemplate = ({
  * Metodo que renderiza el componente en el parent indicado
  * @param {HTMLElement} parent Parent sobre el que añadir el componente
  */
-const render = (parent) => {
+const render = (parent, checkoutEventHandler, logoutEventHandler) => {
     // Añado el componente
-    parent.innerHTML += htmlTemplate({numItems: 10});
+    parent.innerHTML = htmlTemplate({numItems: 10});
     // Eventos
     const cart = document.querySelector('.js--cart');
-    cart.addEventListener('click', (ev) => {
-        ev.preventDefault();
-        alert('not implemented');
-    });
+    cart.addEventListener('click', checkoutEventHandler);
     const logoutNode = document.querySelector('.js--logout');
-    logoutNode.addEventListener('click', (ev) => {
-        try {
-            toggleLoader('d-none');
-            ev.preventDefault();
-            state.logout();
-            page('/login');
-        } catch (error) {
-            alert(error.message);
-        } finally {
-            setTimeout(()=>toggleLoader('d-none'),300);
-        }
-    });
+    logoutNode.addEventListener('click', logoutEventHandler);
 }
 
 export default render;

@@ -1,7 +1,7 @@
 /**
  * Imports
  */
-import Api from './api.js';
+import Api from '../api/index.js';
 
 /**
  * Definitions
@@ -22,7 +22,7 @@ class State {
         this.cart = null;
         this.beers = null;
         this.currentPage = 0;
-        this.beersPerPage = 20;
+        this.beersPerPage = 10;
         this.loading = true;
     }
 
