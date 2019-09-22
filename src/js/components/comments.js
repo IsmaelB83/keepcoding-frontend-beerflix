@@ -23,4 +23,7 @@ const render = (parent, comments) => {
   parent.innerHTML = htmlTemplate(comments);
 };
 
+/**
+ * Exports
+ */
 export default render;

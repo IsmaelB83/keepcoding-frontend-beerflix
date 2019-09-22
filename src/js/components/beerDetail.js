@@ -74,7 +74,10 @@ const htmlTemplate = beer => {
                             </h4>
                             <form id="formComment" class="form-comment" data-id='${beer.beerId}'>
                                 <textarea id="comment" type="text" placeholder="Comment" required></textarea>
-                                <button type="submit">Post Comment</button>
+                                <button type="submit" class='detail-button'>
+                                    Post Comment
+                                    <img src='/public/img/loading.gif' alt=''>
+                                </button>
                             </form>
                             <div class='comment-box'>
                             </div>
@@ -114,18 +117,61 @@ const addListeners = (likeBeer, addToCart, commentBeer) => {
 
 /**
  * Incrementa en uno el contador de likes
+ * @param {boolean} progress True = en proceso de like, False = like confirmado por la API
  */
-const addLikeDetail = progress => {
-  const likes = document.querySelector('.section-mainTitle .numLikes');
+const updateLikes = progress => {
+  const numLikes = document.querySelector('.section-mainTitle .numLikes');
+  const panelLikes = document.querySelector('.section-mainTitle small');
   const buttonLike = document.querySelector('#btnLike');
-  if (progress) {
-    const newLikes = 1 + parseInt(likes.innerHTML);
-    likes.innerHTML = `${newLikes}`;
-  }
+  // Activa/Desactiva el spinner del botón (mejorar la UX)
   toggleClass(buttonLike)('detail-button--active');
+  if (!progress) {
+    // Efecto en verde del contador de likes para mejorar la UX
+    toggleClass(panelLikes)('active');
+    // Incremento el contador de likes actual
+    const newLikes = 1 + parseInt(numLikes.innerHTML);
+    numLikes.innerHTML = `${newLikes}`;
+    // Dejo el boton en verde para mejorar la UX
+    toggleClass(buttonLike)('detail-button--done');
+    // Efecto de resaltado finaliza en 500ms para dejarlo como estaba
+    setTimeout(() => toggleClass(panelLikes)('active'), 500);
+  }
+};
+
+/**
+ * Añade un comentario
+ * @param {boolean} progress True = en proceso de comentario, False = comentario confirmado por la API
+ */
+const updateComments = (progress, comment = '') => {
+  const numComments = document.querySelector('.section-mainTitle .numLikes');
+  const panelComments = document.querySelector('#comments .detail-section--title small');
+  const buttonComment = document.querySelector('#formComment .detail-button');
+  // Activa/Desactiva el spinner del botón (mejorar la UX)
+  toggleClass(buttonComment)('detail-button--active');
+  if (!progress) {
+    // Efecto en verde del contador de likes para mejorar la UX
+    toggleClass(panelComments)('active');
+    // Incremento el contador de likes actual
+    const newComments = 1 + parseInt(numComments.innerHTML);
+    numComments.innerHTML = `${newComments}`;
+    const now = new Date();
+    const boxComments = document.querySelector('.comment-box');
+    boxComments.innerHTML += `
+                <div class="comment">
+                  <img src="/public/img/avatar.png" class="img-fluid rounded-circle comment-avatar" alt="user Pic">
+                  <div class="comment-body">
+                    <p class='comment-date'>${now.toISOString()}</p>
+                    <p class='comment-text'>${comment}</p>
+                  </div>
+                </div>`;
+    // Dejo el boton en verde para mejorar la UX
+    toggleClass(buttonComment)('detail-button--done');
+    // Efecto de resaltado finaliza en 500ms para dejarlo como estaba
+    setTimeout(() => toggleClass(panelComments)('active'), 500);
+  }
 };
 
 /**
  * Exports
  */
-export { render, addListeners, addLikeDetail };
+export { render, addListeners, updateLikes, updateComments };

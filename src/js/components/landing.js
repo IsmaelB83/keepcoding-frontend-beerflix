@@ -2,7 +2,7 @@
  * Template que genera el contenido del componente
  */
 const htmlTemplate = () => {
-  return `<div id='landing' class='landing'>
+  return `<div class='landing'>
                 <div class='filter'></div>
                 <picture class='hero-background'>
                     <source srcset='/public/img/heropanel@tablet.jpg 320w, /public/img/heropanel@desktop.jpg 768w, ' media='(min-width: 1024px)' />

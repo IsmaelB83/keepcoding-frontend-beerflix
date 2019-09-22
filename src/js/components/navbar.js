@@ -22,13 +22,13 @@ const htmlTemplate = () => {
                             <a class='nav-link' href='/'>Home <span class='sr-only'>(current)</span></a>
                         </li>
                         <li class='nav-item'>
-                            <a class='nav-link' href='/'>Product</a>
+                            <a class='nav-link' href='/#products'>Product</a>
                         </li>
                         <li class='nav-item'>
-                            <a class='nav-link' href='/'>About us</a>
+                            <a class='nav-link' href='/#footer'>About us</a>
                         </li>
                         <li class='nav-item'>
-                            <a class='nav-link' href='/'>Contact</a>
+                            <a class='nav-link' href='/#footer'>Contact</a>
                         </li>
                     </ul>
                     <ul class='navbar-nav navbar-nav--right'>

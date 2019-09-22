@@ -129,7 +129,7 @@ class State {
     if (results.success) {
       this.currentBeer = results.beer;
     }
-    return results;
+    return this.currentBeer;
   };
 
   /**

@@ -73,7 +73,7 @@ page('/detail/:id', ctx => {
 page('/cart', () => {
   try {
     // Si está autenticado renderizo el home, si no redirijo a login
-    if (state.isAuthent) {
+    if (state.isAuthenticated()) {
       //renderCart();
     } else {
       // eslint-disable-next-line no-undef

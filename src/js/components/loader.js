@@ -13,7 +13,7 @@ const htmlTemplate = () => {
  * @param {HTMLElement} parent Parent sobre el que añadir el componente
  */
 const render = parent => {
-  parent.innerHTML += htmlTemplate();
+  parent.innerHTML = htmlTemplate();
 };
 
 export default render;

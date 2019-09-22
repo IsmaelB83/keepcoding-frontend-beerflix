@@ -215,12 +215,15 @@
 }
 
 .detail-button--active {
-    color: white;
-    background-color:var(--main-color--light);
+    background-color:var(--main-color--light) !important;
 }
 
 .detail-button--active img {
     display: inline-block;
+}
+
+.detail-button--done {
+    background-color:greenyellow !important;
 }
 
 .detail-description {

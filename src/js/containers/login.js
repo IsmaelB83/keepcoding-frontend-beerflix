@@ -6,19 +6,30 @@ import { render as renderLogin, addListeners as addListenersLogin } from '../com
 import state from '../state/index.js';
 
 /**
+ * Plantilla de la web de login
+ */
+const templateHTML = () => {
+  return `<!-- Formulario de login -->
+          <div id='login' class='login' autocomplete='on'>
+            <!-- Inject Landing JS here -->
+          </div>`;
+};
+
+/**
  * Prepare page to render login
  */
 const render = () => {
-  // Fetch DOM elements
+  // DOM containers
   const app = document.querySelector('#app');
-  const header = document.querySelector('header');
-  const footer = document.querySelector('footer');
-  // Change UI
-  app.innerHTML = '';
+  const header = document.querySelector('#header');
+  const footer = document.querySelector('#footer');
+  // Render
+  app.innerHTML = templateHTML();
+  const login = document.querySelector('#login');
+  renderLogin(login);
   header.innerHTML = '';
-  footer.style.display = 'none';
-  // Render login and add listeners
-  renderLogin(app);
+  footer.innerHTML = '';
+  // Listeners
   addListenersLogin(hideAlertEventHandler, submitEventHandler);
 };
 
