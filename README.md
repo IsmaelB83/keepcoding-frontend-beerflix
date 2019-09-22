@@ -23,3 +23,7 @@ Práctica del módulo de frontend avanzado de Keepcoding
 3. Creado una especie de state (tipo redux), para almacenar y compartir el estado de la aplicación de forma global (state.js)
 
 4. Uso de eslint y prettier para aplicar guia de estilos de airbnb
+
+5. Añadida sección de cesta de la compra
+
+6. Animaciones al hacer like, o añadir comments, que mejoran la experiencia de usuario
