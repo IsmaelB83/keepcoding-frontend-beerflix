@@ -21,6 +21,7 @@ class State {
     this.apiKey = null;
     this.cart = null;
     this.beers = null;
+    this.currentBeer = null;
     this.currentPage = 0;
     this.beersPerPage = 10;
   }
@@ -125,6 +126,9 @@ class State {
   loadBeer = async id => {
     // Fetch data filtering by name
     const results = await getBeer(id);
+    if (results.success) {
+      this.currentBeer = results.beer;
+    }
     return results;
   };
 

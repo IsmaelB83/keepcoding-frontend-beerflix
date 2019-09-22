@@ -110,16 +110,10 @@ const api = (url = API_URL) => {
     postLike: async id => {
       try {
         // Fetch
-        const response = await fetch(`${BEERS_URL}/${id}/like`, {
-          method: 'POST',
-          headers: {
-            'Content-type': 'application/json',
-            'X-API-KEY': API_KEY
-          }
-        });
+        const response = await secureFetch(`${BEERS_URL}/${id}/like`, 'POST', null, API_KEY);
         // Exception
         if (!response.ok) {
-          throw new Error('Error when posting a comment');
+          throw new Error('Error al grabar el like');
         }
         // Ok
         return await response.json();
@@ -136,19 +130,10 @@ const api = (url = API_URL) => {
     postComment: async (id, comment) => {
       try {
         // Fetch
-        const response = await fetch(`${BEERS_URL}/${id}/comment`, {
-          method: 'POST',
-          body: JSON.stringify({
-            comment: comment
-          }),
-          headers: {
-            'Content-type': 'application/json',
-            'X-API-KEY': API_KEY
-          }
-        });
+        const response = await secureFetch(`${BEERS_URL}/${id}/comment`, 'POST', { comment }, API_KEY);
         // Exception
         if (!response.ok) {
-          throw new Error('Error giving a like');
+          throw new Error('Error al grabar el comentario');
         }
         // Ok
         return await response.json();

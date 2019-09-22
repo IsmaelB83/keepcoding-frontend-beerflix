@@ -4,14 +4,14 @@
 import state from '../state/index.js';
 import renderLoader from '../components/loader.js';
 import renderNavbar from '../components/navbar.js';
-import { render as renderDetail, addListeners as addListenersDetail } from '../components/beerDetail.js';
+import { render as renderDetail, addListeners as addListenersDetail, addLikeDetail } from '../components/beerDetail.js';
 import renderComments from '../components/comments.js';
 
 const templateHTML = () => {
   return `<section id='product' class='container section section-detail'>
             <div class='row'>
               <div id='detailContent' class='col-12'>
-
+                <!-- Inject JS here -->
               </div>
             </div>
           </section>`;
@@ -37,8 +37,10 @@ const render = id => {
     if (result.success) {
       // Renderizo el detail
       renderDetail(container, result.beer);
-      const comments = document.querySelector('.comment-box');
-      renderComments(comments, result.beer.comment);
+      if (result.beer.comment && result.beer.comment.length > 0) {
+        const comments = document.querySelector('.comment-box');
+        renderComments(comments, result.beer.comment);
+      }
       addListenersDetail(likeBeerEventHandler, addToCartEventHandler, commentBeerEventHandler);
     } else {
       // eslint-disable-next-line no-undef
@@ -52,7 +54,13 @@ const render = id => {
  */
 const likeBeerEventHandler = ev => {
   ev.preventDefault();
-  console.log(ev.currentTarget);
+  // Actualizo la UI antes de recibir respuesta de la API para una mejor UX
+  addLikeDetail(true);
+  state.postLike(state.currentBeer.beerId).then(results => {
+    if (results.success) {
+      addLikeDetail(false);
+    }
+  });
 };
 
 /**
@@ -68,7 +76,12 @@ const addToCartEventHandler = ev => {
  */
 const commentBeerEventHandler = ev => {
   ev.preventDefault();
-  console.log(ev.currentTarget);
+  // Actualizo la UI antes de recibir respuesta de la API para una mejor UX
+  //addComment();
+  state.postComment(state.currentBeer.beerId).then(results => {
+    // Aquí debería controlarse si la API da algún error, y en ese caso revertir el cambio previo en la UI.
+    // Así el usuario sabría que el comentario no se ha grabado en la app
+  });
 };
 
 export default render;

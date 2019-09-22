@@ -199,10 +199,28 @@
     border: 1px solid #B28564;
     transition: .2s all ease;
     font-weight: 700;
+    display: flex;
+    flex-direction: row;
+}
+
+.detail-button img {
+    margin-left: 5px;
+    width: 14px;
+    height: 14px;
+    display: none;
 }
 
 .detail-button:hover {
     color: #B28564;
+}
+
+.detail-button--active {
+    color: white;
+    background-color:var(--main-color--light);
+}
+
+.detail-button--active img {
+    display: inline-block;
 }
 
 .detail-description {

@@ -1,4 +1,9 @@
 /**
+ * Imports
+ */
+import { toggleClass } from '../ui/ui.js';
+
+/**
  * Template que genera el component de listado de cervezas
  * @param {Object} beer Objeto beer a renderizar
  */
@@ -23,11 +28,12 @@ const htmlTemplate = beer => {
                     ${beer.name}
                     <small>
                         <i class="far fa-thumbs-up"></i>
-                        ${beer.likes !== '' ? beer.likes : 0}
+                        <span class='numLikes'>${beer.likes}</span> 
                         <span> likes</span>
-                    <small>
+                    </small>
                 </h2>
-                    <!-- Header section-->
+                
+                <!-- Header section-->
                 <article class='detail'>
                     <div class='detail-header row'>
                         <div class='detail-img col-12 col-sm-4 col-md-3'>
@@ -43,6 +49,7 @@ const htmlTemplate = beer => {
                                 </button>
                                 <button id='btnLike' class='detail-button' data-id='${beer.beerId}'>
                                     <i class="far fa-thumbs-up"></i> Like
+                                    <img src='/public/img/loading.gif' alt=''>
                                 </button>
                             </div>
                         </div>           
@@ -106,6 +113,19 @@ const addListeners = (likeBeer, addToCart, commentBeer) => {
 };
 
 /**
+ * Incrementa en uno el contador de likes
+ */
+const addLikeDetail = progress => {
+  const likes = document.querySelector('.section-mainTitle .numLikes');
+  const buttonLike = document.querySelector('#btnLike');
+  if (progress) {
+    const newLikes = 1 + parseInt(likes.innerHTML);
+    likes.innerHTML = `${newLikes}`;
+  }
+  toggleClass(buttonLike)('detail-button--active');
+};
+
+/**
  * Exports
  */
-export { render, addListeners };
+export { render, addListeners, addLikeDetail };
