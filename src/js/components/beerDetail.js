@@ -66,10 +66,10 @@ const htmlTemplate = beer => {
                             </div>
                         </div>
                         <div id='comments' class='detail-section col-12 mt-4'>
-                            <h4 class='detail-section--title'>Comments 
+                            <h4 class='detail-section--title section-commments'>Comments 
                                 <small>
                                     <i class="far fa-comments"></i> 
-                                    ${beer.comment ? beer.comment.length : 0}
+                                    <span>${beer.comment ? beer.comment.length : 0}</span>
                                 </small>
                             </h4>
                             <form id="formComment" class="form-comment" data-id='${beer.beerId}'>
@@ -143,7 +143,7 @@ const updateLikes = progress => {
  * @param {boolean} progress True = en proceso de comentario, False = comentario confirmado por la API
  */
 const updateComments = (progress, comment = '') => {
-  const numComments = document.querySelector('.section-mainTitle .numLikes');
+  const numComments = document.querySelector('#comments .detail-section--title span');
   const panelComments = document.querySelector('#comments .detail-section--title small');
   const buttonComment = document.querySelector('#formComment .detail-button');
   // Activa/Desactiva el spinner del botón (mejorar la UX)

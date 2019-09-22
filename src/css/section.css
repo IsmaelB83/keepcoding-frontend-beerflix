@@ -49,6 +49,6 @@
     font-size: .4em;
 }
 
-.section-mainTitle .active {
+.section-mainTitle .active, .section-commments .active {
     color: green !important;
 }
