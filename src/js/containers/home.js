@@ -177,7 +177,12 @@ const refreshEventHandler = ev => {
  */
 const addToCartEventHandler = ev => {
   ev.preventDefault();
-  console.log(ev.currentTarget.dataset);
+  // Actualizo la lista de la compra del state
+  state.addBeerToCart(ev.currentTarget.dataset['id']);
+  // Update cart items in the navbar
+  const numCart = document.querySelector('.cart-items');
+  const aux = parseInt(numCart.innerHTML) + 1;
+  numCart.innerHTML = `${aux}`;
 };
 
 export default render;

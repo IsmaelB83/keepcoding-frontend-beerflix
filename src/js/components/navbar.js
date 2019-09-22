@@ -33,7 +33,7 @@ const htmlTemplate = () => {
                     </ul>
                     <ul class='navbar-nav navbar-nav--right'>
                         <li class='nav-item'>
-                            <a class='nav-link nav-link--button' href='/cart'><i class="fas fa-shopping-cart"></i><small> 0 items</small></a>
+                            <a class='nav-link nav-link--button' href='/cart'><i class="fas fa-shopping-cart"></i><small><span class='cart-items ml-1'>${state.cart.length}</span> items</small></a>
                         </li>
                         <li class='nav-item'>
                             <a class='nav-link nav-link--button js--logout' href='#'><i class="fas fa-sign-out-alt"></i><small> logout</small></a>

@@ -4,11 +4,11 @@
 import { toggleClass } from '../ui/ui.js';
 
 /**
- * Template que genera el component de listado de cervezas
- * @param {Object} beer Objeto beer a renderizar
+ * Template to render the beer detail
+ * @param {Object} beer Beer to render
  */
 const htmlTemplate = beer => {
-  // Ingredient boxes
+  // Boxes of ingredients
   let boxhtml = '';
   for (let prop in beer.ingredients) {
     boxhtml += `<div class="detail-box"><h6>${prop}</h6><ul>`;
@@ -43,7 +43,7 @@ const htmlTemplate = beer => {
                             <p class='detail-price'><span class='currency'>$</span>${beer.price}</p>
                             <p class='detail-description'>${beer.description}</p>
                             <div class='detail-order'>
-                                <input class='detail-quantity' type='number' maxlength="2" value="1">
+                                <input class='detail-quantity' type='number' maxlength="2" value="1" readonly>
                                 <button id='btnAddCart' class='detail-button mr-2' data-id='${beer.beerId}'>
                                     <i class="fas fa-cart-plus"></i> Add to cart
                                 </button>
@@ -89,9 +89,9 @@ const htmlTemplate = beer => {
 };
 
 /**
- * Metodo que renderiza el componente en el parent indicado
- * @param {HTMLElement} parent Parent sobre el que añadir el componente
- * @param {Array} beer Cerveza que hay que detallar
+ * Method to render this component in the specified parent
+ * @param {HTMLElement} parent Parent wich will contain the rendered component
+ * @param {Array} beers Beer to render
  */
 const render = (parent, beer) => {
   parent.innerHTML = htmlTemplate(beer);

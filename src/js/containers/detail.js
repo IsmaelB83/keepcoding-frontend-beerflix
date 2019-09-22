@@ -20,11 +20,11 @@ import renderComments from '../components/comments.js';
 const templateHTML = () => {
   return `<section id='product' class='container section section-detail'>
             <div class='row'>
+              
               <div id='detailContent' class='col-12'>
-                
                 <!-- Inject JS here -->
-
               </div>
+              
             </div>
           </section>`;
 };
@@ -77,11 +77,16 @@ const likeBeerEventHandler = ev => {
 };
 
 /**
- * Handle add to cart
+ * Handler like beer
  */
 const addToCartEventHandler = ev => {
   ev.preventDefault();
-  console.log(ev.currentTarget);
+  // Actualizo la lista de la compra del state
+  state.addBeerToCart(ev.currentTarget.dataset['id']);
+  // Update cart items in the navbar
+  const numCart = document.querySelector('.cart-items');
+  const aux = parseInt(numCart.innerHTML) + 1;
+  numCart.innerHTML = `${aux}`;
 };
 
 /**

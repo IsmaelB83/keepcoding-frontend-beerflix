@@ -75,27 +75,11 @@ class State {
   /**
    * Add beer to the shopping cart
    * @param {String} id Beer identification
-   * @param {String} name Beer name
-   * @param {Number} quantity Beer quantity
-   * @param {Number} price Beer price
    */
-  addBeerToCart = (id, name, quantity, price) => {
-    const element = this.cart.find(e => (e.id = id));
+  addBeerToCart = id => {
+    const element = this.beers.find(b => b.beerId === parseInt(id));
     if (element) {
-      element.quantity += quantity;
-    } else {
-      this.cart.push({ id, name, quantity, price });
-    }
-  };
-
-  /**
-   * Deletes the specified id beer from the shopping cart
-   * @param {String} id Beer identification
-   */
-  removeBeerFromCart = id => {
-    const index = this.cart.findIndex(e => (e.id = id));
-    if (index >= 0) {
-      this.cart.splice(index, 1);
+      this.cart.push(element);
     }
   };
 

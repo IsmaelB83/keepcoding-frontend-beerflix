@@ -34,18 +34,18 @@ const api = (url = API_URL) => {
    */
   let API_KEY = '';
   /**
-   * Rutas básicas del API
+   * Basic routes in the API
    */
   const LOGIN_URL = `${url}user/login`;
   const BEERS_URL = `${url}beers`;
 
   /**
-   * Objeto con los metodos para utilización de la API
+   * Object with all the methods to interact with the API
    */
   return {
     /**
-     * Comprueba que tenemos las credenciales correctas (email y API key)
-     * @param {String} email Email registrado en el backend
+     * Check our credentials and return the API-KEY
+     * @param {String} email Registered email in the API
      */
     login: async email => {
       try {
@@ -66,14 +66,14 @@ const api = (url = API_URL) => {
     },
     /**
      * Get Beers list
-     * @param {String} filter Filtro a aplicar a la busquedad de beers
+     * @param {String} filter Filter by name in the API
      */
     getBeers: async filter => {
       try {
-        // Url a la que llamar
+        // API resource
         const requestUrl = filter ? `${BEERS_URL}?search=${filter}` : BEERS_URL;
         const response = await secureFetch(requestUrl, 'GET', null, API_KEY);
-        // Exceptiopn
+        // Exception
         if (!response.ok) {
           throw new Error('Error fetching beers');
         }
@@ -90,7 +90,7 @@ const api = (url = API_URL) => {
      */
     getBeer: async id => {
       try {
-        // Url a la que llamar
+        // API resource
         const response = await secureFetch(`${BEERS_URL}/${id}`, 'GET', null, API_KEY);
         // Exception
         if (!response.ok) {
@@ -125,7 +125,7 @@ const api = (url = API_URL) => {
     /**
      * POST a comment to the id beer
      * @param {String} id Beer identification number
-     * @param {String} comment Commento to post
+     * @param {String} comment Comment to post
      */
     postComment: async (id, comment) => {
       try {

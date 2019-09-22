@@ -293,3 +293,33 @@
     letter-spacing: .75px;
     margin-left: 5px;
 }
+
+.grid_vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.beer_cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.beer_cart-left {
+    width: 75px;
+    height: 150px;
+    margin-right: 1.25rem;
+    overflow: hidden;
+}
+
+.beer_cart-left img {
+    height: 100%;
+}
+
+.beer_cart-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

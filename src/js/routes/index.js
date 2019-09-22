@@ -5,6 +5,7 @@ import state from '../state/index.js';
 import renderLogin from '../containers/login.js';
 import renderDetail from '../containers/detail.js';
 import renderHome from '../containers/home.js';
+import renderCart from '../containers/cart.js';
 
 /**
  * Ruta principal
@@ -74,10 +75,7 @@ page('/cart', () => {
   try {
     // Si está autenticado renderizo el home, si no redirijo a login
     if (state.isAuthenticated()) {
-      //renderCart();
-
-      // eslint-disable-next-line no-undef
-      page.redirect('/login');
+      renderCart();
     } else {
       // eslint-disable-next-line no-undef
       page.redirect('/login');
