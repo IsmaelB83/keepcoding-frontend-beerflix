@@ -6,6 +6,7 @@
 }
 
 .section-mainTitle {
+    font-family: 'Roboto Slab';
     font-size: 2.5rem;
     line-height: 2rem;
     margin-bottom: 2.5rem;
@@ -13,6 +14,7 @@
 }
 
 .section-subTitle {
+    font-family: 'Roboto Slab';
     text-transform: uppercase;
     font-size: .9rem;
     margin-bottom: 1rem;
@@ -37,4 +39,12 @@
 
 .section-detail {
     margin-top: 6rem;
+}
+
+.detail-section--title small {
+    font-size: .6em;
+}
+
+.section-mainTitle small {
+    font-size: .4em;
 }

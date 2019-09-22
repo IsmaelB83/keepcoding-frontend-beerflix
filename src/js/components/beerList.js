@@ -17,9 +17,21 @@ const htmlTemplate = beers => {
                                       <h5 class='beer-title'><a href='/detail/${beer.beerId}'>${beer.name}</a></h5>
                                       <div class='beer-middle'>
                                           <p class='beer-date'>${beer.firstBrewed}</p>
-                                          <a href='#' onClick='' class='beer-btn'>add to cart</a>       
+                                          <a href='#' class='beer-btn js--btnAddCart' data-id='${beer.beerId}'>
+                                            <i class="fas fa-cart-plus"></i> add to cart
+                                          </a>
                                       </div>
                                       <p class='beer-text'>${beer.description.substring(0, 150) + '...'}</p>
+                                      <div class='beer-social'>
+                                        <p class='beer-likes'>
+                                          <i class="far fa-thumbs-up"></i> ${beer.likes !== '' ? beer.likes : 0}
+                                          <small class='ml-1'>likes</small>
+                                        </p>
+                                        <p class='beer-comments'>
+                                          <i class="far fa-comments"></i> ${beer.comment ? beer.comment.length : 0} 
+                                          <small class='ml-1'>comments</small>
+                                        </p>
+                                      </div>
                                   </div>
                               </div>
                           </li>`;
@@ -37,4 +49,19 @@ const render = (parent, beers) => {
   parent.innerHTML = htmlTemplate(beers);
 };
 
-export default render;
+/**
+ * Metodo que asocia los event listeners pasados como parametros a los objetos que generan los eventos
+ * La idea de no tener los listeners definidos en el componente. Es hacer que este componente sea lo
+ * más desacoplado posible de la lógica de negocio que gestiona el evento (definida en el container).
+ * Trato de aplicar algo similar al patrón component/container de REACT.
+ * @param {*} addToCart Event listener que gestiona añadir una beer a la cesta de la compra
+ */
+const addListeners = addToCart => {
+  const buttonsAddCart = document.querySelectorAll('.js--btnAddCart');
+  buttonsAddCart.forEach(b => b.addEventListener('click', addToCart));
+};
+
+/**
+ * Exports
+ */
+export { render, addListeners };

@@ -2,50 +2,73 @@
  * Imports
  */
 import state from '../state/index.js';
+import renderLoader from '../components/loader.js';
 import renderNavbar from '../components/navbar.js';
-import renderDetail from '../components/beerDetail.js';
+import { render as renderDetail, addListeners as addListenersDetail } from '../components/beerDetail.js';
 import renderComments from '../components/comments.js';
+
+const templateHTML = () => {
+  return `<section id='product' class='container section section-detail'>
+            <div class='row'>
+              <div id='detailContent' class='col-12'>
+
+              </div>
+            </div>
+          </section>`;
+};
 
 /**
  * Prepare page to render login
  */
 const render = id => {
-  // Busco el beer asociado a ese id
-  let beer = null;
-  for (let i = 0; i < state.beers.length; i++) {
-    const b = state.beers[i];
-    if (b.beerId === parseInt(id)) {
-      beer = b;
-      break;
+  // Pido el detalle a la API a través del state
+  const promise = state.loadBeer(id);
+  // Renderizo al pantalla excpeto el beer
+  const header = document.querySelector('#header');
+  renderNavbar(header);
+  const app = document.querySelector('#app');
+  app.innerHTML = templateHTML();
+  const container = document.querySelector('#detailContent');
+  renderLoader(container);
+  const footer = document.querySelector('footer');
+  footer.style.display = 'block';
+  // El detalle de la cerveza se renderiza cuando lo devuelva la API
+  promise.then(result => {
+    if (result.success) {
+      // Renderizo el detail
+      renderDetail(container, result.beer);
+      const comments = document.querySelector('.comment-box');
+      renderComments(comments, result.beer.comment);
+      addListenersDetail(likeBeerEventHandler, addToCartEventHandler, commentBeerEventHandler);
+    } else {
+      // eslint-disable-next-line no-undef
+      page('/');
     }
-  }
-  // Si se ha encontrado la beer
-  if (beer) {
-    // Get DOM nodes
-    const header = document.querySelector('#header');
-    const app = document.querySelector('#app');
-    const footer = document.querySelector('footer');
-    // Render home
-    renderNavbar(header);
-    app.innerHTML = '';
-    renderDetail(app, beer);
-    footer.style.display = 'block';
-    // Configure component
-    componentMounted();
-  } else {
-    // eslint-disable-next-line no-undef
-    page('/');
-  }
+  });
 };
 
 /**
- * Once rendered, this function adds the logic to the new component
+ * Handle like beer
  */
-const componentMounted = () => {
-  // Render comments
-  const comments = document.querySelector('#comments');
-  renderComments(comments);
-  // Add event listeners
+const likeBeerEventHandler = ev => {
+  ev.preventDefault();
+  console.log(ev.currentTarget);
+};
+
+/**
+ * Handle add to cart
+ */
+const addToCartEventHandler = ev => {
+  ev.preventDefault();
+  console.log(ev.currentTarget);
+};
+
+/**
+ * Handle comment on beer
+ */
+const commentBeerEventHandler = ev => {
+  ev.preventDefault();
+  console.log(ev.currentTarget);
 };
 
 export default render;

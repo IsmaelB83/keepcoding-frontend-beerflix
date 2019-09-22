@@ -2,8 +2,8 @@
  * Imports
  */
 import state from '../state/index.js';
-import renderBeerList from '../components/beerList.js';
-import renderPaginator from '../components/paginator.js';
+import { render as renderBeerList, addListeners as addListenersBeers } from '../components/beerList.js';
+import { render as renderPaginator, addListeners as addListenersPage } from '../components/paginator.js';
 import { toggleClass } from '../ui/ui.js';
 
 /**
@@ -11,59 +11,59 @@ import { toggleClass } from '../ui/ui.js';
  */
 const htmlTemplate = () => {
   return `<section id='products' class='container section'>
-                <div class='row'>
-                    <div class='col-12'>
-                        <!-- Header section-->
-                        <h3 class='section-subTitle'>Home delivery</h3>
-                        <h2 class='section-mainTitle'>Enjoy your beer</h2>
-                        <p class='section-summary'>
-                            We have a huge catalog of craft beers. Have a sit, make your order and enjoy your drink as soon as we deliver it to you in the comfort of your home
-                        </p>
+            <div class='row'>
+                <div class='col-12'>
+                    <!-- Header section-->
+                    <h3 class='section-subTitle'>Home delivery</h3>
+                    <h2 class='section-mainTitle'>Enjoy your beer</h2>
+                    <p class='section-summary'>
+                        We have a huge catalog of craft beers. Have a sit, make your order and enjoy your drink as soon as we deliver it to you in the comfort of your home
+                    </p>
 
-                        <!-- Form search -->
-                        <p class='section-summary section-summary--small'>
-                            You can search beers by name and/or the interval of brewed dates (if you fill just from or to, the app will do the rest for you)
-                        </p>
-                        <form id='searchForm' class='form-search'>
-                            <div class='row'>    
-                              <div class='col'>
-                                <label for="inputSearch">Name</label>
-                                <input type='text' id='inputSearch' class='form-control input--brown' placeholder='filter by name'>
-                              </div>
-                            </div>
-                            <div class='row'>
-                              <div class='col'>
-                                <label for="fromDate">Brewed from</label>
-                                <input type='date' id='fromDate' class='form-control input--brown'>
-                              </div>
-                              <div class='col'>
-                                <label for="toDate">To</label>
-                                <input type='date' id='toDate' class='form-control input--brown'>
-                              </div>
-                            </div>
-                            <div class='row'>
-                              <div class='col'>
-                                <button type='submit' class='button-brown button-brown--fill'><i class='fas fa-search'></i> search</button>
-                              </div>
-                            </div>
-                        </form>
-                        
-                        <!-- Grid -->
-                        <div id='beers-list'>
+                    <!-- Form search -->
+                    <p class='section-summary section-summary--small'>
+                        You can search beers by name and/or the interval of brewed dates (if you fill just from or to, the app will do the rest for you)
+                    </p>
+                    <form id='searchForm' class='form-search'>
+                        <div class='row'>    
+                          <div class='col'>
+                            <label for="inputSearch">Name</label>
+                            <input type='text' id='inputSearch' class='form-control input--brown' placeholder='filter by name'>
+                          </div>
                         </div>
+                        <div class='row'>
+                          <div class='col'>
+                            <label for="fromDate">Brewed from</label>
+                            <input type='date' id='fromDate' class='form-control input--brown'>
+                          </div>
+                          <div class='col'>
+                            <label for="toDate">To</label>
+                            <input type='date' id='toDate' class='form-control input--brown'>
+                          </div>
+                        </div>
+                        <div class='row'>
+                          <div class='col'>
+                            <button type='submit' class='button-brown button-brown--fill'><i class='fas fa-search'></i> search</button>
+                          </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Grid -->
+                    <div id='beers-list'>
+                    </div>
 
-                        <!-- Loader -->
-                        <div class='loader-api'>
-                            <img src='/public/img/loading.gif' alt=''>
-                            <p id='loader-text'>fetching data from API...</p>
-                        </div>
+                    <!-- Loader -->
+                    <div class='loader-api'>
+                        <img src='/public/img/loading.gif' alt=''>
+                        <p id='loader-text'>fetching data from API...</p>
+                    </div>
 
-                        <!-- Paginator -->
-                        <div id='paginator' class='paginator'>
-                        </div>
+                    <!-- Paginator -->
+                    <div id='paginator' class='paginator'>
                     </div>
                 </div>
-            </section>`;
+            </div>
+        </section>`;
 };
 
 /**
@@ -94,8 +94,8 @@ const updateBeers = beers => {
   renderBeerList(container, paginatedBeers);
   renderPaginator(paginator, state.currentPage, beers.length, state.beersPerPage);
   // Add event listeners
-  const links = paginator.querySelectorAll('.page-link:not(.active)');
-  links.forEach(link => link.addEventListener('click', paginatorClick));
+  addListenersPage(paginatorClick);
+  addListenersBeers(addToCartEventHandler);
   form.addEventListener('submit', searchEventHandler);
   // Hide loader
   toggleClass(loader)('d-none');
@@ -143,6 +143,14 @@ const searchEventHandler = ev => {
   promise.then(results => {
     updateBeers(results);
   });
+};
+
+/**
+ * Handler like beer
+ */
+const addToCartEventHandler = ev => {
+  ev.preventDefault();
+  console.log(ev.currentTarget.dataset);
 };
 
 /**

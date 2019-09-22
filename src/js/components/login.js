@@ -33,4 +33,22 @@ const render = parent => {
   parent.innerHTML += htmlTemplate();
 };
 
-export default render;
+/**
+ * Metodo que asocia los event listeners pasados como parametros a los objetos que generan los eventos
+ * La idea de no tener los listeners definidos en el componente. Es hacer que este componente sea lo
+ * más desacoplado posible de la lógica de negocio que gestiona el evento (definida en el container).
+ * Trato de aplicar algo similar al patrón component/container de REACT.
+ * @param {*} hideAlert Event listener que gestiona la escritura en el input de email
+ * @param {*} submitLogin Event listener que gestiona el submit del formulario de login
+ */
+const addListeners = (hideAlert, submitLogin) => {
+  const form = document.querySelector('.login-form');
+  const email = document.querySelector("input[type='email']");
+  email.addEventListener('keydown', hideAlert);
+  form.addEventListener('submit', submitLogin);
+};
+
+/**
+ * Exports
+ */
+export { render, addListeners };

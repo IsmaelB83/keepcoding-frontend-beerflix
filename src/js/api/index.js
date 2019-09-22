@@ -91,12 +91,7 @@ const api = (url = API_URL) => {
     getBeer: async id => {
       try {
         // Url a la que llamar
-        const response = await fetch(`${BEERS_URL}/${id}`, {
-          headers: {
-            'Content-type': 'application/json',
-            'X-API-KEY': API_KEY
-          }
-        });
+        const response = await secureFetch(`${BEERS_URL}/${id}`, 'GET', null, API_KEY);
         // Exception
         if (!response.ok) {
           throw new Error('Error fetching beer');

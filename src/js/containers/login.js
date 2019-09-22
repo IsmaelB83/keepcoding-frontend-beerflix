@@ -2,7 +2,7 @@
  * Imports
  */
 import { removeClass, addClass, toggleLoader } from '../ui/ui.js';
-import renderLogin from '../components/login.js';
+import { render as renderLogin, addListeners as addListenersLogin } from '../components/login.js';
 import state from '../state/index.js';
 
 /**
@@ -17,23 +17,9 @@ const render = () => {
   app.innerHTML = '';
   header.innerHTML = '';
   footer.style.display = 'none';
-  // Render login
+  // Render login and add listeners
   renderLogin(app);
-  // Once renedered, the component is initialized
-  componentMounted();
-};
-
-/**
- * Once rendered, this function adds the logic to the new component
- */
-const componentMounted = () => {
-  // Fetch DOM elements
-  const form = document.querySelector('.login-form');
-  const email = document.querySelector("input[type='email']");
-  // Functions to change UI
-  // Add listeners
-  email.addEventListener('keydown', hideAlertEventHandler);
-  form.addEventListener('submit', submitEventHandler);
+  addListenersLogin(hideAlertEventHandler, submitEventHandler);
 };
 
 /**

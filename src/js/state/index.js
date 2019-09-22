@@ -6,10 +6,11 @@ import Api from '../api/index.js';
 /**
  * Definitions
  */
-const { login, getBeers } = Api();
+const { login, getBeers, getBeer, postComment, postLike } = Api();
 
 /**
- * Class to handle the global state of the SPA (trying to get similar functionality than redux)
+ * Class to handle the global state of the SPA (trying to get similar functionality than redux).
+ * It also centralizes the access to the API
  */
 class State {
   /**
@@ -85,12 +86,12 @@ class State {
    * Deletes the specified id beer from the shopping cart
    * @param {String} id Beer identification
    */
-  /*removeBeerFromCart = id => {
+  removeBeerFromCart = id => {
     const index = this.cart.findIndex(e => (e.id = id));
     if (index >= 0) {
-      this.cart.splice(findIndex, 1);
-    } 
-  };*/
+      this.cart.splice(index, 1);
+    }
+  };
 
   /**
    * Load beers from backend
@@ -116,6 +117,33 @@ class State {
     this.currentPage = 0;
     // Return beers
     return this.beers;
+  };
+
+  /**
+   * Load beer detail
+   */
+  loadBeer = async id => {
+    // Fetch data filtering by name
+    const results = await getBeer(id);
+    return results;
+  };
+
+  /**
+   * Post Like to beer
+   */
+  postLike = async id => {
+    // Fetch data filtering by name
+    const results = await postLike(id);
+    return results;
+  };
+
+  /**
+   * Post comment to beer
+   */
+  postComment = async (id, comment) => {
+    // Fetch data filtering by name
+    const results = await postComment(id, comment);
+    return results;
   };
 }
 
