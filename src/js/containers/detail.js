@@ -11,6 +11,7 @@ import {
   updateLikes,
   updateComments
 } from '../components/beerDetail.js';
+import { removeClass } from '../ui/ui.js';
 import renderComments from '../components/comments.js';
 
 /**
@@ -45,7 +46,7 @@ const render = id => {
       addListenersDetail(likeBeerEventHandler, addToCartEventHandler, commentBeerEventHandler);
     } else {
       // eslint-disable-next-line no-undef
-      page('/');
+      page.redirect('/');
     }
   });
   // Renderizo al pantalla excepto el beer
@@ -57,6 +58,7 @@ const render = id => {
   const container = document.querySelector('#detailContent');
   renderLoader(container);
   renderFooter(footer);
+  removeClass(footer)('d-none');
 };
 
 /**

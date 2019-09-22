@@ -2,11 +2,12 @@
  * Imports
  */
 import state from '../state/index.js';
-import renderForm from '../components/searchForm.js';
+import { render as renderForm, updateFilters } from '../components/searchForm.js';
 import renderLoader from '../components/loader.js';
 import renderFooter from '../components/footer.js';
 import renderNavbar from '../components/navbar.js';
 import renderLanding from '../components/landing.js';
+import { removeClass } from '../ui/ui.js';
 import { render as renderBeerList, addListeners as addListenersBeers } from '../components/beerList.js';
 import { render as renderPaginator, addListeners as addListenersPage } from '../components/paginator.js';
 
@@ -65,6 +66,7 @@ const render = () => {
   renderForm(form);
   renderLoader(grid);
   renderFooter(footer);
+  removeClass(footer)('d-none');
   // Listeners
   componentReady();
 };
@@ -76,6 +78,10 @@ const componentReady = () => {
   // DOM objects
   const form = document.querySelector('#searchForm');
   const reload = document.querySelector('#reloadData');
+  // Filtros de sesiones anteriores
+  if (state.filters) {
+    updateFilters(state.filters.name, state.filters.fromDate, state.filters.toDate);
+  }
   // Listeners
   form.addEventListener('submit', searchEventHandler);
   reload.addEventListener('click', refreshEventHandler);

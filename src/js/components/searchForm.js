@@ -24,12 +24,12 @@ const htmlTemplate = () => {
                 </div>
                 <div class='row'>
                     <div class='col'>
-                        <button type='submit' class='button-brown button-brown--fill'>
+                        <button type='submit' class='button-brown button-brown--fill btn-block'>
                             <i class='fas fa-search'></i> search
                         </button>
                     </div>
                     <div class='col'>
-                        <button id='reloadData' class='button-brown button-brown--fill'>
+                        <button id='reloadData' class='button-brown button-brown--fill btn-block'>
                             <i class="fas fa-sync"></i> refresh all
                         </button>
                     </div>
@@ -46,6 +46,29 @@ const render = parent => {
 };
 
 /**
+ * Actualiza los filtros según vengan por parametros
+ * @param {String} newName Filtro por nombre
+ * @param {String} newFromDate Filtro desde fecha
+ * @param {String} newToDate Filtro hasta fecha
+ */
+const updateFilters = (newName, newFromDate, newToDate) => {
+  const name = document.querySelector('#inputSearch');
+  const fromDate = document.querySelector('#fromDate');
+  const toDate = document.querySelector('#toDate');
+  name.value = newName || '';
+  if (newFromDate) {
+    const d = new Date(newFromDate);
+    const auxString = `${d.getFullYear()}-${('0' + (d.getMonth() + 1)).slice(-2)}-${('0' + d.getDate()).slice(-2)}`;
+    fromDate.value = auxString; //yyyy-MM-dd
+  }
+  if (newToDate) {
+    const d = new Date(newToDate);
+    const auxString = `${d.getFullYear()}-${('0' + (d.getMonth() + 1)).slice(-2)}-${('0' + d.getDate()).slice(-2)}`;
+    toDate.value = auxString; //yyyy-MM-dd
+  }
+};
+
+/**
  * Exports
  */
-export default render;
+export { render, updateFilters };

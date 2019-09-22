@@ -64,7 +64,7 @@ const logoutEventHandler = ev => {
     toggleLoader('d-none');
     state.logout();
     // eslint-disable-next-line no-undef
-    page('/login');
+    page.redirect('/login');
   } catch (error) {
     alert(error.message);
   } finally {

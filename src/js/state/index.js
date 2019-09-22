@@ -24,27 +24,32 @@ class State {
     this.currentBeer = null;
     this.currentPage = 0;
     this.beersPerPage = 10;
+    this.filters = null;
   }
 
   /**
    * Login user into the state
    */
   login = async email => {
-    try {
-      // API Login
-      const result = await login(email);
-      if (result) {
-        // User logged in
-        (this.email = result.user.email), (this.apiKey = result.user.apiKey);
-        this.cart = [];
-        localStorage.setItem('BeerflixIBA', JSON.stringify(result.user));
-        return true;
+    // API Login
+    const result = await login(email);
+    if (result && result.success) {
+      // User logged in
+      this.email = result.user.email;
+      this.apiKey = result.user.apiKey;
+      // TO-DO: el contenido del carrito también debería tener persistencia en el local storage
+      this.cart = [];
+      // Obtengo el string del local storage
+      const lsString = localStorage.getItem('BeerflixIBA');
+      if (lsString) {
+        const lsJSON = JSON.parse(lsString);
+        // Guardo en el state los filtros del local storage
+        this.filters = lsJSON.filters;
       }
-      // Not authorized
-      throw 'Not authenticated';
-    } catch (error) {
-      return false;
+      // Si existe lo convierto a JSON
+      return true;
     }
+    return false;
   };
 
   /**
@@ -54,7 +59,7 @@ class State {
     // User not logged in
     (this.email = null), (this.apiKey = null);
     this.cart = null;
-    localStorage.clear();
+    //localStorage.clear();
   };
 
   /**
@@ -101,8 +106,9 @@ class State {
     // Fetch data filtering by name
     const results = await getBeers(filter);
     // Filter by date if available
-    const fromDate = new Date(from);
-    const toDate = new Date(to);
+    let fromDate = new Date(from);
+    let toDate = new Date(to);
+    // Chequeo si los filtros de fecha son validos
     if (fromDate instanceof Date && !isNaN(fromDate) && toDate instanceof Date && !isNaN(toDate)) {
       this.beers = results.beers.filter(beer => {
         const aux = beer.firstBrewed.split('/');
@@ -114,7 +120,18 @@ class State {
       });
     } else {
       this.beers = results.beers;
+      fromDate = null;
+      toDate = null;
     }
+    // Guardo los filtros en local storage
+    const auxLS = localStorage.getItem('BeerflixIBA');
+    if (auxLS) {
+      const auxJSON = JSON.parse(auxLS);
+      this.filters = { name: filter, fromDate, toDate };
+      auxJSON.filters = { name: filter, fromDate, toDate };
+      localStorage.setItem('BeerflixIBA', JSON.stringify(auxJSON));
+    }
+    // Current page 0
     this.currentPage = 0;
     // Return beers
     return this.beers;

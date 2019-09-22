@@ -28,7 +28,7 @@ const render = () => {
   const login = document.querySelector('#login');
   renderLogin(login);
   header.innerHTML = '';
-  footer.innerHTML = '';
+  addClass(footer)('d-none');
   // Listeners
   addListenersLogin(hideAlertEventHandler, submitEventHandler);
 };
@@ -59,9 +59,10 @@ const submitEventHandler = async ev => {
     const email = document.querySelector("input[type='email']");
     toggleLoader('d-none');
     // Login
-    if (await state.login(email.value)) {
+    const result = await state.login(email.value);
+    if (result) {
       // eslint-disable-next-line no-undef
-      page('/');
+      page.redirect('/');
     } else {
       const alert = document.querySelector('.alert');
       const showAlert = removeClass(alert);

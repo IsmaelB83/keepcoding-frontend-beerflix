@@ -32,7 +32,7 @@ page('/', () => {
       renderHome();
     } else {
       // eslint-disable-next-line no-undef
-      page('/login');
+      page.redirect('/login');
     }
   } catch (error) {
     // Log
@@ -56,7 +56,7 @@ page('/detail/:id', ctx => {
       renderDetail(id);
     } else {
       // eslint-disable-next-line no-undef
-      page('/login');
+      page.redirect('/login');
     }
   } catch (error) {
     // Log
@@ -75,9 +75,12 @@ page('/cart', () => {
     // Si está autenticado renderizo el home, si no redirijo a login
     if (state.isAuthenticated()) {
       //renderCart();
+
+      // eslint-disable-next-line no-undef
+      page.redirect('/login');
     } else {
       // eslint-disable-next-line no-undef
-      page('/login');
+      page.redirect('/login');
     }
   } catch (error) {
     // Log
