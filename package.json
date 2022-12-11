@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/IsmaelB83/keepcoding-frontend-beerflix#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
